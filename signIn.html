@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Courier New, Courier New, sans-serif;
+    }
+
+    input[type=text], input[type=password] {
+        background-color: #dedde5;
+        width: 350px;
+        padding: 20px 25px;
+        margin: 20px;
+        text-align: left;
+        display: inline-block;
+        border: 1px solid #1a4c53;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #a22f07;
+        color: white;
+        padding: 20px 25px;
+        margin: 0 auto;
+        border: none;
+        cursor: pointer;
+        width: 150px;
+        box-shadow: 0 9px #3a3737;
+        border-radius: 13px;
+        display: flex;
+        justify-content: center;
+    }
+
+    button:hover {
+        background-color: #de6c0f;
+        opacity: 0.8;
+    }
+
+    button:active {
+        background-color: #a13606;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .container {
+        width: 450px;
+        padding: 12px;
+        border-radius: 4px;
+        background-color: #b95f18;
+    }
+
+    .user {
+        width: 475px;
+        padding: 12px;
+        border-radius: 4px;
+        background-color: #debc0a;
+        margin: 10% auto;
+    }
+
+</style>
+
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <form class="user">
+
+        <div class="container">
+            <div>
+                <label><b>Username</b></label>
+            </div>
+            <div>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <div>
+                <label><b>Email</b></label>
+            </div>
+            <div>
+                <input type="text" id="mail" placeholder="E-mail" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <div>
+                <label><b>Password</b></label>
+            </div>
+            <div>
+                <input type="text" id="pswrd" placeholder="Password" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>Choose your role</p>
+            <input type="radio" id="admin" name="role" value="Admin" placeholder="Admin" required>
+            <label>Admin</label><br>
+
+            <input type="radio" id="user" name="role" value="User"  placeholder="User" required>
+            <label>User</label><br>
+
+            <input type="radio" id="moderator" name="role" value="Moderator"  placeholder="Moderator" required>
+            <label>Moderator</label><br>
+
+            <br>
+        </div>
+
+        <div class="container">
+            <p>Choose your role (You can choose more than 1)</p>
+            <input type="radio" id="admin2" placeholder="Admin2" value="Admin" required>
+            <label for="admin2">Admin</label><br>
+
+            <input type="radio" id="user2" placeholder="User2" value="User" required>
+            <label for="user2">User</label><br>
+
+            <input type="radio" id="moderator2" placeholder="Moderator" value="Moderator" required>
+            <label for="moderator2">Moderator</label><br>
+
+            <br>
+        </div>
+
+
+        <div class="container">
+            <div>
+                <button type="submit" onclick="loginFunc();whichRoleOneChoose(); whichRoleMoreChoose()">Signin</button>
+            </div>
+        </div>
+
+    </form>
+</head>
+
+<script>
+    function whichRoleOneChoose(){
+        var a = document.getElementsByName("role") ;
+        var b ;
+        for (let i = 0 ; i < a.length ; i++)
+            if (a[i].checked)
+                b = a[i].value;
+        alert(b);
+    }
+    function whichRoleMoreChoose(){
+        var str = "Choosen role(s) : " ;
+
+       if (document.getElementById("admin2").checked )
+           str += document.getElementById("admin2").value + " ";
+
+       if (document.getElementById("user2").checked )
+            str += document.getElementById("user2").value+" ";
+
+       if (document.getElementById("moderator2").checked )
+            str += document.getElementById("moderator2").value+" ";
+
+       alert(str)
+
+    }
+    function loginFunc() {
+        var mail = document.getElementById("mail").value;
+        var userName = document.getElementById("username").value;
+        var password = document.getElementById("pswrd").value;
+        alert("E-mail is: " + mail + "\nUsername is :" + userName + "\nPassword is: " + password);
+    }
+</script>
+
+</body>
+</html>
